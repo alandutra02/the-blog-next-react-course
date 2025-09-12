@@ -1,13 +1,17 @@
-import { postRepository } from '@/repositories/post';
+import { postRepository } from "@/repositories/post";
+import { PostModel } from "@/models/post/post-model";
 
+// Server Component async
 export async function PostsList() {
-  const posts = await postRepository.findAll();
+  const posts: PostModel[] = await postRepository.findAll();
 
   return (
-    <div>
-      {posts.map(post => {
-        return <p key={post.id}>{post.title}</p>;
-      })}
+    <div className="space-y-2 p-4">
+      {posts.map(post => (
+        <p key={post.id} className="text-xl">
+          {post.title}
+        </p>
+      ))}
     </div>
   );
 }
