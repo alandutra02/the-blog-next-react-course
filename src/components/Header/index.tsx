@@ -1,26 +1,15 @@
-import Link from "next/link"
-
-type HeaderProps = {
-    children?: React.ReactNode,
-    className?: string
-}
-
-export default function Header({children, className}: HeaderProps) {
-    return (
-        <header>
-            <h1 className={
-                `text-xl
-                font-bold
-                text-blue-500
-                hover:text-blue-50
-                hover:bg-blue-500
-                transition
-                duration-300
-                ${className}`}>
-                    <Link href='#'>
-                        {children}
-                    </Link>
-            </h1>
-        </header>
-    )
+export function Header() {
+  return (
+    <header>
+      <h1
+        className={
+            `text-4xl/normal font-extrabold py-8
+            sm:text-5xl/normal sm:py-10
+            md:text-6xl/normal md:py-11
+            lg:text-7xl/normal lg:py-12`}
+      >
+        <a href='#'>The Blog</a>
+      </h1>
+    </header>
+  );
 }
