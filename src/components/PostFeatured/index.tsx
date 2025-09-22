@@ -1,10 +1,9 @@
-import { formatDateTime } from '@/utils/format-datetime';
 import { PostCoverImage } from '../PostCoverImage';
 import { PostSummary } from '../PostSummary';
-import { findAllPublicPosts } from '@/lib/post/queries';
+import { findAllPublicPostsCached } from '@/lib/post/queries';
 
 export async function PostFeatured() {
-    const posts = await findAllPublicPosts()
+    const posts = await findAllPublicPostsCached()
     const post = posts[0]
     const postLink = `/post/${post.slug}`;
 
@@ -28,7 +27,7 @@ export async function PostFeatured() {
           className='text-slate-600 block text-sm/tight'
           dateTime='2025-04-20'
         >
-          {formatDateTime(post.createdAt)}
+
         </time>
 
         <PostSummary
